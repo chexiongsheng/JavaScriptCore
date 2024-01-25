@@ -1,0 +1,10 @@
+on: [push]
+jobs:
+  Build-JavaScriptCore:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build JavaScriptCore
+        run: |
+          cmake -B build -S . -DCMAKE_TOOLCHAIN=$VCPKG_ROOT\scripts\buildsystems\vcpkg.cmake
