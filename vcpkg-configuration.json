@@ -1,0 +1,15 @@
+{
+  "default-registry": {
+    "kind": "git",
+    "baseline": "c3b8b7aed2dad1c83cc3069753ab1fc0318b70de",
+    "repository": "https://github.com/microsoft/vcpkg"
+  },
+  "registries": [
+    {
+      "kind": "git",
+      "repository": "https://github.com/bavulapati/vcpkg",
+      "baseline": "c3b8b7aed2dad1c83cc3069753ab1fc0318b70de",
+      "packages": ["javascriptcore"]
+    }
+  ]
+}
