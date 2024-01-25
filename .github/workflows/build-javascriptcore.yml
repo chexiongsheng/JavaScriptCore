@@ -7,4 +7,4 @@ jobs:
         uses: actions/checkout@v4
       - name: Build JavaScriptCore
         run: |
-          cmake -B build -S . -DCMAKE_TOOLCHAIN=$VCPKG_ROOT\scripts\buildsystems\vcpkg.cmake
+          cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT\scripts\buildsystems\vcpkg.cmake
