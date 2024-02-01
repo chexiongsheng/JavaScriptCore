@@ -12,4 +12,4 @@ jobs:
           ls vcpkg\scripts\buildsystems\vcpkg.cmake
       - name: Build JavaScriptCore
         run: |
-          cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE="vcpkg\scripts\buildsystems\vcpkg.cmake"
+          cmake --preset release -DCMAKE_TOOLCHAIN_FILE="vcpkg\scripts\buildsystems\vcpkg.cmake"
