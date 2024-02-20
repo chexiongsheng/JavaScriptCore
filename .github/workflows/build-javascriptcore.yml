@@ -9,7 +9,13 @@ jobs:
         run: |
           git clone https://github.com/microsoft/vcpkg.git
           ./vcpkg/bootstrap-vcpkg.bat
-          ls vcpkg\scripts\buildsystems\vcpkg.cmake
       - name: Build JavaScriptCore
-        run: |
-          cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE="vcpkg\scripts\buildsystems\vcpkg.cmake"
+        run: cmake --preset release -DCMAKE_TOOLCHAIN_FILE="vcpkg\scripts\buildsystems\vcpkg.cmake"
+      - name: Build JavaScriptCoreTest
+        run: cmake --build --preset release
+      - name: Upload JavaScriptCore artifacts
+        uses: actions/upload-artifact@v4
+        with:
+            name: JavaScriptCore
+            path: build/release/vcpkg_installed/x64-windows/
+            if-no-files-found: error

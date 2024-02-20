@@ -1,0 +1,11 @@
+message(STATUS "Using vcpkg to find JavaScriptCore")
+message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
+set(JavaScriptCore_DIR "${CMAKE_BINARY_DIR}/vcpkg_installed/x64-windows")
+set(JavaScriptCore_INCLUDE_DIRS "${JavaScriptCore_DIR}/include")
+message(STATUS "JavaScriptCore_INCLUDE_DIRS: ${JavaScriptCore_INCLUDE_DIRS}")
+
+set(JavaScriptCore_LOCATION_DEBUG "${JavaScriptCore_DIR}/debug/bin/JavaScriptCore.dll")
+set(JavaScriptCore_LOCATION_RELEASE "${JavaScriptCore_DIR}/bin/JavaScriptCore.dll")
+set(JavaScriptCore_IMPLIB_DEBUG "${JavaScriptCore_DIR}/debug/lib/JavaScriptCore.lib")
+set(JavaScriptCore_IMPLIB_RELEASE "${JavaScriptCore_DIR}/lib/JavaScriptCore.lib")
+set(JavaScriptCore_FOUND TRUE)

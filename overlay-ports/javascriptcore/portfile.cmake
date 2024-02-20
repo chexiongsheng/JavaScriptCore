@@ -1,15 +1,13 @@
 vcpkg_from_github(
       OUT_SOURCE_PATH SOURCE_PATH
       REPO webkit/webkit
-      REF WebKit-7616.1.27.211.1
-      SHA512 aea5feb085f9adaa6efbbb840b2bdbc677c69c82c53c611ef9b527ae4ea2490a983dfdc55eb8aa471ab9975b748ea51d2cf9f2c853454904018ab8bb0ec77ad0
+      REF 60339678878a0cc06b7ba3b5c5bc574d59f821a1
+      SHA512 7fbd81c3aca23ee105f64d5f8f63e00fcbaadde544377047ba58da670adb774752ed6e1fb6bff1aade8e579fecf22cbe5bd547eef82645675c05386c9ad771c5
       HEAD_REF main
       PATCHES
         remove_webkit_find_package.patch
         tune_jsconly_port_for_windows.patch
-        tune_wtf.patch
         modify_install_rules.patch
-        disable_api_tests.patch
 )
 
 vcpkg_find_acquire_program(RUBY)
@@ -27,7 +25,7 @@ vcpkg_add_to_path("${PERL_DIR}")
 if (VCPKG_LIBRARY_LINKAGE STREQUAL "static")
   set(ENABLE_STATIC_JSC ON)
 else()
-  set(ENABLE_STATIC_JSC ON)
+  set(ENABLE_STATIC_JSC OFF)
 endif()
 
 vcpkg_cmake_configure(
@@ -36,6 +34,7 @@ vcpkg_cmake_configure(
       -DPORT=JSCOnly
       -DENABLE_STATIC_JSC=${ENABLE_STATIC_JSC}
       -DUSE_APPLE_ICU=OFF
+      -DENABLE_TOOLS=OFF
 )
 
 vcpkg_cmake_install()
